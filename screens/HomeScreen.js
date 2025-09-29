@@ -29,13 +29,13 @@ export default function HomeScreen({ navigation, menuItems }) {
 }
 
 const styles = StyleSheet.create({
-  container: { padding: 20, marginTop: 20, backgroundColor: '#fff', flex: 1 },
-  title: { fontSize: 26, fontWeight: 'bold', marginBottom: 10, textAlign: 'center' },
-  subtitle: { fontSize: 18, marginBottom: 5, textAlign: 'center' },
-  total: { fontSize: 16, marginBottom: 20, textAlign: 'center' },
+  container: { padding: 20, marginTop: 20, backgroundColor: '#F5F5F5', flex: 1 },
+  title: { fontSize: 26, fontWeight: 'bold', marginBottom: 10, textAlign: 'center', color: '#333333' },
+  subtitle: { fontSize: 18, marginBottom: 5, textAlign: 'center', color: '#333333' },
+  total: { fontSize: 16, marginBottom: 20, textAlign: 'center', color: '#333333' },
   buttonContainer: { marginBottom: 20 },
-  sectionTitle: { fontSize: 18, fontWeight: 'bold', marginBottom: 10 },
-  menuItem: { marginBottom: 15, padding: 10, backgroundColor: '#f0f0f0', borderRadius: 5 },
-  dishName: { fontWeight: 'bold', fontSize: 16 },
-  course: { fontStyle: 'italic', color: 'gray' },
+  sectionTitle: { fontSize: 18, fontWeight: 'bold', marginBottom: 10, color: '#333333' },
+  menuItem: { marginBottom: 15, padding: 10, backgroundColor: '#fff', borderRadius: 5 },
+  dishName: { fontWeight: 'bold', fontSize: 16, color: '#333333' },
+  course: { fontStyle: 'italic', color: '#666666' },
 });

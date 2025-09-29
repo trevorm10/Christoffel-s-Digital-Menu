@@ -81,14 +81,14 @@ export default function ManageMenuScreen({ menuItems, setMenuItems }) {
 }
 
 const styles = StyleSheet.create({
-  container: { padding: 20, marginTop: 20, backgroundColor: '#fff', flex: 1 },
-  title: { fontSize: 22, fontWeight: 'bold', marginBottom: 10 },
-  input: { borderWidth: 1, padding: 10, marginBottom: 10, borderRadius: 5 },
-  sectionTitle: { fontSize: 18, marginTop: 20, fontWeight: 'bold' },
-  menuItem: { marginTop: 10, padding: 10, backgroundColor: '#f9f9f9', borderRadius: 5 },
-  dishName: { fontWeight: 'bold', fontSize: 16 },
-  course: { fontStyle: 'italic', color: 'gray' },
-  removeButton: { color: 'red', marginTop: 5 },
+  container: { padding: 20, marginTop: 20, backgroundColor: '#F5F5F5', flex: 1 },
+  title: { fontSize: 22, fontWeight: 'bold', marginBottom: 10, color: '#333333' },
+  input: { borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 10, borderRadius: 5, backgroundColor: '#fff', color: '#333333' },
+  sectionTitle: { fontSize: 18, marginTop: 20, fontWeight: 'bold', color: '#333333' },
+  menuItem: { marginTop: 10, padding: 10, backgroundColor: '#fff', borderRadius: 5 },
+  dishName: { fontWeight: 'bold', fontSize: 16, color: '#333333' },
+  course: { fontStyle: 'italic', color: '#666666' },
+  removeButton: { color: '#D68B4A', marginTop: 5, fontWeight: 'bold' },
 });
 
 const pickerSelectStyles = {
@@ -97,19 +97,21 @@ const pickerSelectStyles = {
     paddingVertical: 12,
     paddingHorizontal: 10,
     borderWidth: 1,
-    borderColor: 'gray',
+    borderColor: '#ccc',
     borderRadius: 5,
-    color: 'black',
+    color: '#333333',
     marginBottom: 10,
+    backgroundColor: '#fff',
   },
   inputAndroid: {
     fontSize: 16,
     paddingHorizontal: 10,
     paddingVertical: 8,
     borderWidth: 1,
-    borderColor: 'gray',
+    borderColor: '#ccc',
     borderRadius: 5,
-    color: 'black',
+    color: '#333333',
     marginBottom: 10,
+    backgroundColor: '#fff',
   },
 };

@@ -11,7 +11,14 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerStyle: { backgroundColor: '#D68B4A' },
+          headerTintColor: '#fff',
+          headerTitleStyle: { fontWeight: 'bold' },
+        }}
+      >
         <Stack.Screen name="Home" options={{ title: "Christoffel's Digital Menu" }}>
           {(props) => <HomeScreen {...props} menuItems={menuItems} />}
         </Stack.Screen>
