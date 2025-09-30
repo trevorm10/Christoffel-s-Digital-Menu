@@ -1,31 +1,49 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, FlatList, StyleSheet,Animated } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 
 const courses = ['Starters', 'Mains', 'Dessert'];
 
 export default function ManageMenuScreen({ menuItems, setMenuItems }) {
-  const [dishName, setDishName] = useState('');
-  const [description, setDescription] = useState('');
-  const [course, setCourse] = useState('');
-  const [price, setPrice] = useState('');
+const [dishName, setDishName] = useState('');
+const [description, setDescription] = useState('');
+const [course, setCourse] = useState('');
+const [price, setPrice] = useState('');
+const [feedbackAnim] = useState(new Animated.Value(-50));
+const [feedbackVisible, setFeedbackVisible] = useState(false);
 
   const addDish = () => {
-    if (dishName && description && course && price) {
-      const newDish = {
-        id: Date.now().toString(),
-        name: dishName,
-        description,
-        course,
-        price: parseFloat(price),
-      };
-      setMenuItems([...menuItems, newDish]);
-      setDishName('');
-      setDescription('');
-      setCourse('');
-      setPrice('');
-    }
-  };
+  if (dishName && description && course && price) {
+    const newDish = {
+      id: Date.now().toString(),
+      name: dishName,
+      description,
+      course,
+      price: parseFloat(price),
+    };
+    setMenuItems([...menuItems, newDish]);
+    setDishName('');
+    setDescription('');
+    setCourse('');
+    setPrice('');
+
+    // Show feedback animation
+    setFeedbackVisible(true);
+    Animated.timing(feedbackAnim, {
+      toValue: 20, // Slide down into view
+      duration: 300,
+      useNativeDriver: false,
+    }).start(() => {
+      setTimeout(() => {
+        Animated.timing(feedbackAnim, {
+          toValue: -50, // Slide back up
+          duration: 300,
+          useNativeDriver: false,
+        }).start(() => setFeedbackVisible(false));
+      }, 2000); // Show for 2 seconds
+    });
+  }
+};
 
   const removeDish = (id) => {
     setMenuItems(menuItems.filter((item) => item.id !== id));
@@ -34,6 +52,11 @@ export default function ManageMenuScreen({ menuItems, setMenuItems }) {
   return (
     <View style={styles.container}>
       {/* Dish Name */}
+      {feedbackVisible && (
+  <Animated.View style={[styles.feedbackBox, { top: feedbackAnim }]}>
+    <Text style={styles.feedbackText}>Dish added!</Text>
+  </Animated.View>
+)}
       <View style={styles.textbox}>
         <Text style={styles.label}>Dish Name</Text>
         <TextInput
@@ -291,4 +314,22 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'Open Sans',
   },
+
+ feedbackBox: {
+    position: 'absolute',
+    left: 16,
+    right: 16,
+    backgroundColor: '#B86B00FF',
+    padding: 10,
+    borderRadius: 6,
+    alignItems: 'center',
+    zIndex: 10,
+  },
+  feedbackText: {
+    color: '#FFFFFF',
+    fontFamily: 'Open Sans',
+    fontSize: 14,
+    fontWeight: '500',
+  },
 });
+
