@@ -247,7 +247,9 @@ const styles = StyleSheet.create({
   },
   priceInput: {
     width: 310,
-    height: 40,
+    height: 47
+    
+    ,
     paddingLeft: 12,
     paddingRight: 12,
     fontFamily: 'Open Sans',
